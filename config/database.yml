@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  charset: utf8mb4
+  collation: utf8mb4_general_ci
+  pool: 5
+  username: quiz
+  password: quiz
+  database: quiz
+  host: localhost
+
+development:
+  <<: *default
+  database: quiz
+
+test:
+  <<: *default
+  database: quiz_test
+
