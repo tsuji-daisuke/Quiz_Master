@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :questions, only: [:index, :create, :destroy, :update]
+      get 'quiz' => 'quiz#show'
+      post 'quiz' => 'quiz#post'
+    end
+  end
+
+  root 'site#index'
+  get 'quiz' => 'site#quiz'
+  get 'manage' => 'site#manage'
+
+  # root 'questions#index'
+  # resources :questions
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
