@@ -13,10 +13,9 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   end
 
   def update
-    q = Question.find(params["id"])
+    q = Question.find(params['id'])
     q.update_attributes(question_params)
     respond_with q, json: q
-
   end
 
   private

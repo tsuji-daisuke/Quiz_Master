@@ -3,6 +3,7 @@ var Quiz = React.createClass({
         return (
             <div>
                 <HeaderQuiz/>
+                <BodyQuiz />
             </div> )
     }
 });

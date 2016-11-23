@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   root 'site#index'
-  get 'quiz' => 'site#quiz'
+  get 'quiz_mode' => 'site#quiz_mode'
   get 'manage' => 'site#manage'
 
   # root 'questions#index'

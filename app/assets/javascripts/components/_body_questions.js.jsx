@@ -3,7 +3,6 @@ var BodyQuestions = React.createClass({
         return {questions: []}
     },
 
-
     componentDidMount() {
         $.getJSON('/api/v1/questions.json', (response) => {
             this.setState({questions: response})
