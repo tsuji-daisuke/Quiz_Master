@@ -27,5 +27,7 @@ module QuizMaster
       g.test_framework = 'rspec'
     end
 
+    Dir[File.join(Rails.root, 'lib', 'core_ext', '*.rb')].each { |l| require l }
+
   end
 end
