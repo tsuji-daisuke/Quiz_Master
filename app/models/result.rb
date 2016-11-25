@@ -19,14 +19,14 @@ class Result < ActiveRecord::Base
       if word =~ /\d+/
         split_answers.push word.to_i.to_en
       else
-        split_answers.push word
+        split_answers.push word.downcase
       end
     end
     self.content.split(/[\s,]/).each do |word|
       if word =~ /\d+/
         split_contents.push word.to_i.to_en
       else
-        split_contents.push word
+        split_contents.push word.downcase
       end
     end
     if split_answers.join(' ').gsub(' ', '') == split_contents.join(' ').gsub(' ', '')
