@@ -3,24 +3,39 @@ var AllQuestions = React.createClass({
         this.props.handleDelete(id);
     },
 
-    onUpdate(question) {
-        this.props.onUpdate(question);
+    onUpdate(question, index) {
+        this.props.onUpdate(question, index);
     },
 
     render() {
-        var questions = this.props.questions.map((question) => {
+        var Table = ReactBootstrap.Table;
+
+        var questions = this.props.questions.map((question, index) => {
             return (
-                <div key={question.id}>
-                    <Question question={question}
-                              handleDelete={this.handleDelete.bind(this, question.id)}
-                              handleUpdate={this.onUpdate}/>
-                </div>
+                <Question question={question}
+                          key={question.id}
+                          index={index}
+                          handleDelete={this.handleDelete.bind(this, question.id)}
+                          handleUpdate={this.onUpdate}/>
             )
         });
 
         return (
             <div>
-                {questions}
+                <Table striped bordered condensed hover>
+                    <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {questions}
+                    </tbody>
+                </Table>
+
+
             </div>
         )
     }

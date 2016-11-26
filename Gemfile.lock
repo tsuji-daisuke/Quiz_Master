@@ -117,6 +117,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (11.3.0)
     rdoc (4.3.0)
+    react-bootstrap-rails (0.30.2)
+      rails (>= 3.1)
     react-rails (1.9.0)
       babel-transpiler (>= 0.7.0)
       coffee-script-source (~> 1.8)
@@ -190,6 +192,7 @@ DEPENDENCIES
   jquery-rails
   mysql2 (= 0.3.18)
   rails (= 4.2.7.1)
+  react-bootstrap-rails
   react-rails
   responders
   rspec-rails (~> 3.5.2)

@@ -11,7 +11,7 @@ var BodyQuestions = React.createClass({
 
 
     handleSubmit(question) {
-        var newState = this.state.questions.concat(question);
+        var newState = [question].concat(this.state.questions);
         this.setState({questions: newState})
     },
 
@@ -35,34 +35,31 @@ var BodyQuestions = React.createClass({
     },
 
 
-    handleUpdate(question) {
+    handleUpdate(question, index) {
         $.ajax({
                 url: `/api/v1/questions/${question.id}`,
                 type: 'PUT',
                 data: {question: question},
                 success: () => {
-                    this.updateQuestions(question);
+                    this.updateQuestions(question, index);
 
                 }
             }
         )
     },
 
-    updateQuestions(question) {
-        var questions = this.state.questions.filter((i) => {
-            return i.id != question.id
-        });
-        questions.push(question);
-
-        this.setState({questions: questions});
+    updateQuestions(question, index) {
+        this.state.questions[index] = question;
+        this.setState({questions: this.state.questions});
     },
-
 
     render() {
         return (
             <div>
                 <NewQuestion handleSubmit={this.handleSubmit}/>
-                <AllQuestions questions={this.state.questions} handleDelete={this.handleDelete} onUpdate={this.handleUpdate}/>
+                <AllQuestions questions={this.state.questions} handleDelete={this.handleDelete}
+                              onUpdate={this.handleUpdate}/>
+
             </div>
         )
     }

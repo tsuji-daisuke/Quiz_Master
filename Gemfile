@@ -34,3 +34,4 @@ end
 
 gem 'react-rails'
 gem 'responders'
+gem 'react-bootstrap-rails'

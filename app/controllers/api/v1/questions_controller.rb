@@ -1,7 +1,7 @@
 class Api::V1::QuestionsController < Api::V1::BaseController
 
   def index
-    respond_with Question.all
+    respond_with Question.all.order('id DESC')
   end
 
   def create
